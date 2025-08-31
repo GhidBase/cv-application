@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-export default function InputSection({ title, inputs }) {
+export default function InputSection({ title, inputs, inputChangeHandler }) {
     function listInputs(inputs) {
         if (!inputs) {
             return <input></input>;
@@ -10,7 +10,11 @@ export default function InputSection({ title, inputs }) {
             return (
                 <div key={input} className="input-component">
                     <p>{input}</p>
-                    <input />
+                    <input
+                        onChange={(e) => {
+                            inputChangeHandler(e, input);
+                        }}
+                    />
                 </div>
             );
         });

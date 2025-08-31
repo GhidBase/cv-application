@@ -15,17 +15,10 @@ Create a components directory
 Styles directory
 Will need to import the CSS files in the component files to use them
 
+====================== Lessons Learned ======================
+You have to make sure you're creating a new object when
+updating state. no newData = userData
 
-
+instead do newData = {...userData}
 
 ====================== To Do ================================
-I need to store state in MainSection since it's the
-parent of both objects, and it controls both children
-
-state should be
-{
-    Name:
-    Email:
-    Phone:
-    Address:
-}

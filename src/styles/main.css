@@ -1,3 +1,7 @@
+:root {
+    --spacing: 20px;
+}
+
 body > #root {
     width: 100dvw;
     height: 100dvh;
@@ -14,8 +18,43 @@ body > #root {
     flex: 2;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin: 100px 0;
     overflow-y: auto;
+}
+
+.cv-body {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+.cv-body h1 {
+    font-size: 2em;
+}
+
+.personal-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--spacing);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.personal-details h1 {
+    margin: 0;
+}
+
+.personal-details p {
+    margin: 0;
+    width: calc(100%);
+    text-align: center;
 }
 
 .input-section {
@@ -26,3 +65,7 @@ body > #root {
     width: 100%;
 }
 
+.separator {
+    border-bottom: 1px solid black;
+    width: calc(100% - 120px);
+}
