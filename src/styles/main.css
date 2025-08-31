@@ -1,5 +1,6 @@
 :root {
     --spacing: 20px;
+    box-sizing: border-box;
 }
 
 body > #root {
@@ -11,20 +12,22 @@ body > #root {
 
 .edit-section {
     flex: 1;
-    overflow-y: auto;
+    overflow: auto;
 }
 
 .cv-section {
     flex: 2;
+
     display: flex;
-    justify-content: center;
-    margin: 100px 0;
-    overflow-y: auto;
+    padding: 40px 40px;
+    overflow: auto;
 }
 
 .cv-body {
-    max-width: 600px;
-    width: 100%;
+    margin: auto;
+    width: 600px;
+    min-width: 600px;
+    height: 849px;
     display: flex;
     align-items: center;
     flex-direction: column;
