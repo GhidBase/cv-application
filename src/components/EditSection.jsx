@@ -7,8 +7,20 @@ export default function EditSection() {
                 title="General Information"
                 inputs={["Full Name", "Email"]}
             ></InputSection>
-            <InputSection title="Educational Experience"></InputSection>
-            <InputSection title="Practical Experience"></InputSection>
+            <InputSection
+                title="Educational Experience"
+                inputs={["School Name", "Title of Study", "Date of Study"]}
+            ></InputSection>
+            <InputSection
+                title="Practical Experience"
+                inputs={[
+                    "Company Name",
+                    "Position Title",
+                    "Main Responsibilities",
+                    "From",
+                    "To",
+                ]}
+            ></InputSection>
         </div>
     );
 }

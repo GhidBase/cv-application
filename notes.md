@@ -19,4 +19,13 @@ Will need to import the CSS files in the component files to use them
 
 
 ====================== To Do ================================
-First need to build an edit section and a CV section
+I need to store state in MainSection since it's the
+parent of both objects, and it controls both children
+
+state should be
+{
+    Name:
+    Email:
+    Phone:
+    Address:
+}
