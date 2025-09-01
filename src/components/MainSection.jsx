@@ -6,13 +6,14 @@ import InputSection from "./InputSection";
 import CV from "./CV";
 
 export default function MainSection() {
-    const [userData, setUserData] = useState({});
+    const [userData, setUserData] = useState([{type: "General"}]);
 
-    function inputChangeHandler(e, field, key) {
+    function inputChangeHandler(e, field, key, type) {
         const newData = { ...userData };
 
         if (newData[key] == null) {
             newData[key] = [];
+            newData[key]["type"] = type;
         }
         newData[key][field] = e.target.value;
         setUserData(newData);
@@ -20,7 +21,7 @@ export default function MainSection() {
         console.log(newData);
     }
 
-    const [inputSections, setInputSections] = useState([
+    const inputSections = [
         {
             type: "General",
             id: 0,
@@ -45,7 +46,7 @@ export default function MainSection() {
                 "To",
             ],
         },
-    ]);
+    ];
 
     return (
         <Fragment>
@@ -57,6 +58,7 @@ export default function MainSection() {
                             sectionKey={inputSection.id}
                             title={inputSection.title}
                             inputs={inputSection.inputs}
+                            type={inputSection.type}
                             inputChangeHandler={inputChangeHandler}
                         ></InputSection>
                     );

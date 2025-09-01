@@ -5,6 +5,7 @@ export default function InputSection({
     inputs,
     inputChangeHandler,
     sectionKey,
+    type
 }) {
     // console.log(inputs)
     function listInputs(inputs) {
@@ -17,9 +18,8 @@ export default function InputSection({
                 <div key={sectionKey + input} className="input-component">
                     <p>{input}</p>
                     <input
-                        // value={}
                         onChange={(e) => {
-                            inputChangeHandler(e, input, sectionKey);
+                            inputChangeHandler(e, input, sectionKey, type);
                         }}
                     />
                 </div>
