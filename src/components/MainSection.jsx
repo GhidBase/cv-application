@@ -9,9 +9,10 @@ export default function MainSection() {
     const [userData, setUserData] = useState([
         { type: "General", id: 0 },
         { type: "Educational", id: 1 },
-        { type: "Educational", id: 2 },
-        { type: "Job", id: 3 },
+        { type: "Job", id: 2 },
     ]);
+
+    const [nextID, setNextID] = useState(3);
 
     function inputChangeHandler(e, field, key, type) {
         const newData = [...userData];
@@ -37,56 +38,34 @@ export default function MainSection() {
         ],
     };
 
+    function listInputSections(type) {
+        return userData.map((inputSection) => {
+            if (inputSection.type == type) {
+                return (
+                    <InputSection
+                        key={inputSection.id}
+                        sectionKey={inputSection.id}
+                        title={inputSection.title}
+                        inputs={inputSections[inputSection.type]}
+                        type={inputSection.type}
+                        inputChangeHandler={inputChangeHandler}
+                    ></InputSection>
+                );
+            }
+        });
+    }
+
     return (
         <Fragment>
             <div className="edit-section">
                 <h1>General Information</h1>
-                {userData.map((inputSection) => {
-                    if (inputSection.type == "General") {
-                        return (
-                            <InputSection
-                                key={inputSection.id}
-                                sectionKey={inputSection.id}
-                                title={inputSection.title}
-                                inputs={inputSections[inputSection.type]}
-                                type={inputSection.type}
-                                inputChangeHandler={inputChangeHandler}
-                            ></InputSection>
-                        );
-                    }
-                })}
+                {listInputSections("General")}
 
                 <h1>Educational Experience</h1>
-                {userData.map((inputSection) => {
-                    if (inputSection.type == "Educational") {
-                        return (
-                            <InputSection
-                                key={inputSection.id}
-                                sectionKey={inputSection.id}
-                                title={inputSection.title}
-                                inputs={inputSections[inputSection.type]}
-                                type={inputSection.type}
-                                inputChangeHandler={inputChangeHandler}
-                            ></InputSection>
-                        );
-                    }
-                })}
+                {listInputSections("Educational")}
 
                 <h1>Practical Experience</h1>
-                {userData.map((inputSection) => {
-                    if (inputSection.type == "Job") {
-                        return (
-                            <InputSection
-                                key={inputSection.id}
-                                sectionKey={inputSection.id}
-                                title={inputSection.title}
-                                inputs={inputSections[inputSection.type]}
-                                type={inputSection.type}
-                                inputChangeHandler={inputChangeHandler}
-                            ></InputSection>
-                        );
-                    }
-                })}
+                {listInputSections("Job")}
 
                 {/* End of edit-section */}
             </div>

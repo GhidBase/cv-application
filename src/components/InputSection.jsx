@@ -6,7 +6,6 @@ export default function InputSection({
     sectionKey,
     type
 }) {
-    // console.log(inputs)
     function listInputs(inputs) {
         if (!inputs) {
             return <input></input>;

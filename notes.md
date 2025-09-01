@@ -25,7 +25,12 @@ instead do newData = {...userData}
 
 What's next
 
-I need to display these things in the CV side
+Add function
 
-Where to start?
+The add function just needs to add a new entry in userData
+it needs to
+- increment the ID by one
+- use the type based on the button pressed (job, education)
+
+I need to create the button
 
