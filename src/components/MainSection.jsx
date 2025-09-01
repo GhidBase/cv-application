@@ -9,7 +9,8 @@ export default function MainSection() {
     const [userData, setUserData] = useState([
         { type: "General", id: 0 },
         { type: "Educational", id: 1 },
-        { type: "Job", id: 2 },
+        { type: "Educational", id: 2 },
+        { type: "Job", id: 3 },
     ]);
 
     function inputChangeHandler(e, field, key, type) {
@@ -22,9 +23,6 @@ export default function MainSection() {
 
         newData[key][field] = e.target.value;
         setUserData(newData);
-
-        console.clear();
-        console.log(newData);
     }
 
     const inputSections = {

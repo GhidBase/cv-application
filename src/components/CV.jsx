@@ -1,6 +1,7 @@
 export default function CV({ data }) {
-    // console.log(data["Full Name"]);
-    console.log(data)
+    const educationalExists =
+        data.filter((d) => d.type == "Educational").length > 0;
+
     return (
         <div className="cv-section">
             <div className="cv-body">
@@ -10,6 +11,24 @@ export default function CV({ data }) {
                 </div>
 
                 <div className="separator"></div>
+
+                <div className="details">
+                    {educationalExists && <p>Educational Experience</p>}
+
+                    {data.map((currentData) => {
+                        if (currentData.type == "Educational") {
+                            return (
+                                <div>
+                                    <p>School: {currentData["School Name"]}</p>
+                                    <p>
+                                        Title: {currentData["Title of Study"]}
+                                    </p>
+                                </div>
+                            );
+                        }
+                        return null;
+                    })}
+                </div>
             </div>
         </div>
     );

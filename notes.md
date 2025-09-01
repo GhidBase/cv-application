@@ -25,3 +25,7 @@ instead do newData = {...userData}
 
 What's next
 
+I need to display these things in the CV side
+
+Where to start?
+

@@ -75,3 +75,10 @@ body > #root {
     border-bottom: 1px solid black;
     width: calc(100% - 120px);
 }
+
+
+.details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
