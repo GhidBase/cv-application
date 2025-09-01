@@ -6,7 +6,11 @@ import InputSection from "./InputSection";
 import CV from "./CV";
 
 export default function MainSection() {
-    const [userData, setUserData] = useState([{type: "General"}]);
+    const [userData, setUserData] = useState([
+        { type: "General" },
+        { type: "Educational" },
+        { type: "Job" },
+    ]);
 
     function inputChangeHandler(e, field, key, type) {
         const newData = { ...userData };
@@ -51,17 +55,52 @@ export default function MainSection() {
     return (
         <Fragment>
             <div className="edit-section">
+                <h1>General Information</h1>
                 {inputSections.map((inputSection) => {
-                    return (
-                        <InputSection
-                            key={inputSection.id}
-                            sectionKey={inputSection.id}
-                            title={inputSection.title}
-                            inputs={inputSection.inputs}
-                            type={inputSection.type}
-                            inputChangeHandler={inputChangeHandler}
-                        ></InputSection>
-                    );
+                    if (inputSection.type == "General") {
+                        return (
+                            <InputSection
+                                key={inputSection.id}
+                                sectionKey={inputSection.id}
+                                title={inputSection.title}
+                                inputs={inputSection.inputs}
+                                type={inputSection.type}
+                                inputChangeHandler={inputChangeHandler}
+                            ></InputSection>
+                        );
+                    }
+                })}
+
+                <h1>Educational Experience</h1>
+                {inputSections.map((inputSection) => {
+                    if (inputSection.type == "Educational") {
+                        return (
+                            <InputSection
+                                key={inputSection.id}
+                                sectionKey={inputSection.id}
+                                title={inputSection.title}
+                                inputs={inputSection.inputs}
+                                type={inputSection.type}
+                                inputChangeHandler={inputChangeHandler}
+                            ></InputSection>
+                        );
+                    }
+                })}
+
+                <h1>Practical Experience</h1>
+                {inputSections.map((inputSection) => {
+                    if (inputSection.type == "Job") {
+                        return (
+                            <InputSection
+                                key={inputSection.id}
+                                sectionKey={inputSection.id}
+                                title={inputSection.title}
+                                inputs={inputSection.inputs}
+                                type={inputSection.type}
+                                inputChangeHandler={inputChangeHandler}
+                            ></InputSection>
+                        );
+                    }
                 })}
 
                 {/* End of edit-section */}

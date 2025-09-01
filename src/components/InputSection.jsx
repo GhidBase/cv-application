@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 
 export default function InputSection({
-    title,
     inputs,
     inputChangeHandler,
     sectionKey,
@@ -28,9 +27,9 @@ export default function InputSection({
     }
 
     return (
-        <div className="input-section" id={title}>
-            <h1>{title}</h1>
+        <div className="input-section" id={sectionKey}>
             {listInputs(inputs)}
+            <p>{sectionKey}</p>
         </div>
     );
 }

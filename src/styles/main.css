@@ -63,7 +63,7 @@ body > #root {
     text-align: center;
 }
 
-.input-section {
+.edit-section > * {
     margin: 80px;
 }
 

@@ -23,3 +23,28 @@ instead do newData = {...userData}
 
 ====================== To Do ================================
 
+So I want to switch each section so that instead of rendering
+html based off of the inputSections array, it's based on the
+userData array
+
+However, I'll need a function that can go and grab the inputs
+value from the inputSections object that has the matching
+type
+
+I could change it so inputSections is not an array anymore
+but rather an object, andeach list of inputs is the value
+part of the key named after that type
+
+e.g. General: ["Full Name", "Email"]
+
+
+
+How do I switch the inputSections to rendering based off of
+userData?
+
+I can just do the same map filter as before, and call inputs
+inputSection[type]
+
+Do I even need anything else in the inputSections array?
+
+I think I'm good with just the 2D array
