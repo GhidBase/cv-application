@@ -38,7 +38,6 @@ export default function InputSection({
     return (
         <div className="input-section" id={sectionKey}>
             {listInputs(inputs)}
-            <p>{sectionKey}</p>
             {type != "General" && <RemoveButton>Remove</RemoveButton>}
         </div>
     );

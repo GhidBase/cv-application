@@ -23,15 +23,4 @@ instead do newData = {...userData}
 
 ====================== To Do ================================
 
-What's next
-
-Remove function
-
-it removes data based on ID
-
-I should create remove buttons in each input section
-
-I have the remove buttons. Now, when called, they should call
-delete myObject.key
-
-first I need to pass in a handler
+Styling

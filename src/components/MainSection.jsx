@@ -6,24 +6,15 @@ import InputSection from "./InputSection";
 import CV from "./CV";
 
 export default function MainSection() {
-    const [userData, setUserData] = useState([
-        { type: "General", id: 0 },
-    ]);
-
+    const [userData, setUserData] = useState([{ type: "General", id: 0 }]);
     const [nextID, setNextID] = useState(userData.length);
 
-    function inputChangeHandler(e, field, key, type) {
-        const newData = [...userData];
-
-        if (newData[key] == null) {
-            newData[key] = [];
-            newData[key]["type"] = type;
-        }
-
-        newData[key][field] = e.target.value;
-        setUserData(newData);
-    }
-
+    /* Input Sections Description:
+        These are the types of inputSections there are
+        all user data has a type that matches up with one
+        of these sections. It uses that match to decide
+        what fields to give an input section
+    */
     const inputSections = {
         General: ["Full Name", "Email"],
         Educational: ["School Name", "Title of Study", "Date of Study"],
@@ -36,6 +27,9 @@ export default function MainSection() {
         ],
     };
 
+    /* Input Section Listing Function
+        This function lists all the input sections 
+     */
     function listInputSections(type) {
         return userData.map((inputSection) => {
             if (inputSection.type == type) {
@@ -76,6 +70,18 @@ export default function MainSection() {
 
     function handleRemoveButtonPress(e, id) {
         const newData = userData.filter((data) => data.id != id);
+        setUserData(newData);
+    }
+
+    function inputChangeHandler(e, field, key, type) {
+        const newData = [...userData];
+
+        if (newData[key] == null) {
+            newData[key] = [];
+            newData[key]["type"] = type;
+        }
+
+        newData[key][field] = e.target.value;
         setUserData(newData);
     }
 

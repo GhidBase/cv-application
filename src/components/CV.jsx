@@ -25,7 +25,7 @@ export default function CV({ data }) {
                                         Company: {currentData["Company Name"]}
                                     </p>
                                     <p>
-                                        Position:
+                                        Position:{" "}
                                         {currentData["Position Title"]}
                                     </p>
                                     <p>
