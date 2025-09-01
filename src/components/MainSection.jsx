@@ -5,6 +5,7 @@ import InputSection from "./InputSection";
 
 import CV from "./CV";
 
+
 export default function MainSection() {
     const [userData, setUserData] = useState([
         { type: "General", id: 0 },
@@ -55,6 +56,28 @@ export default function MainSection() {
         });
     }
 
+    function AddButton({ children, type }) {
+        return (
+            <button onClick={(e) => handleAddButtonPress(e, type)}>
+                {children}
+            </button>
+        );
+    }
+
+    function handleAddButtonPress(e, type) {
+        console.log(type);
+        console.log(e.target);
+
+        const newData = [...userData];
+        newData[nextID] = { type: type };
+        newData[nextID].id = nextID;
+
+        setNextID(nextID + 1);
+        setUserData(newData);
+    }
+
+    function handleRemoveButtonPress() {}
+
     return (
         <Fragment>
             <div className="edit-section">
@@ -63,9 +86,11 @@ export default function MainSection() {
 
                 <h1>Educational Experience</h1>
                 {listInputSections("Educational")}
+                <AddButton type="Educational">Add Education</AddButton>
 
                 <h1>Practical Experience</h1>
                 {listInputSections("Job")}
+                <AddButton type="Job">Add Work</AddButton>
 
                 {/* End of edit-section */}
             </div>

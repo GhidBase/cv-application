@@ -4,7 +4,8 @@ export default function InputSection({
     inputs,
     inputChangeHandler,
     sectionKey,
-    type
+    type,
+    handleRemoveButtonPress,
 }) {
     function listInputs(inputs) {
         if (!inputs) {
@@ -25,10 +26,19 @@ export default function InputSection({
         });
     }
 
+    function RemoveButton({ children, id }) {
+        return (
+            <button onClick={(e) => handleRemoveButtonPress(e, id)}>
+                {children}
+            </button>
+        );
+    }
+
     return (
         <div className="input-section" id={sectionKey}>
             {listInputs(inputs)}
             <p>{sectionKey}</p>
+            {sectionKey > 0 && <RemoveButton>Remove</RemoveButton>}
         </div>
     );
 }

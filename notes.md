@@ -25,12 +25,8 @@ instead do newData = {...userData}
 
 What's next
 
-Add function
+Remove function
 
-The add function just needs to add a new entry in userData
-it needs to
-- increment the ID by one
-- use the type based on the button pressed (job, education)
+it removes data based on ID
 
-I need to create the button
-
+I should create remove buttons in each input section
