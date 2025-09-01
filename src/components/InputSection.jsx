@@ -26,9 +26,10 @@ export default function InputSection({
         });
     }
 
-    function RemoveButton({ children, id }) {
+    function RemoveButton({ children }) {
+        // console.log(id);
         return (
-            <button onClick={(e) => handleRemoveButtonPress(e, id)}>
+            <button onClick={(e) => handleRemoveButtonPress(e, sectionKey)}>
                 {children}
             </button>
         );
@@ -38,7 +39,7 @@ export default function InputSection({
         <div className="input-section" id={sectionKey}>
             {listInputs(inputs)}
             <p>{sectionKey}</p>
-            {sectionKey > 0 && <RemoveButton>Remove</RemoveButton>}
+            {type != "General" && <RemoveButton>Remove</RemoveButton>}
         </div>
     );
 }

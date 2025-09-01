@@ -5,15 +5,12 @@ import InputSection from "./InputSection";
 
 import CV from "./CV";
 
-
 export default function MainSection() {
     const [userData, setUserData] = useState([
         { type: "General", id: 0 },
-        { type: "Educational", id: 1 },
-        { type: "Job", id: 2 },
     ]);
 
-    const [nextID, setNextID] = useState(3);
+    const [nextID, setNextID] = useState(userData.length);
 
     function inputChangeHandler(e, field, key, type) {
         const newData = [...userData];
@@ -50,6 +47,7 @@ export default function MainSection() {
                         inputs={inputSections[inputSection.type]}
                         type={inputSection.type}
                         inputChangeHandler={inputChangeHandler}
+                        handleRemoveButtonPress={handleRemoveButtonPress}
                     ></InputSection>
                 );
             }
@@ -76,7 +74,10 @@ export default function MainSection() {
         setUserData(newData);
     }
 
-    function handleRemoveButtonPress() {}
+    function handleRemoveButtonPress(e, id) {
+        const newData = userData.filter((data) => data.id != id);
+        setUserData(newData);
+    }
 
     return (
         <Fragment>
