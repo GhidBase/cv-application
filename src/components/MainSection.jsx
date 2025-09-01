@@ -8,39 +8,59 @@ import CV from "./CV";
 export default function MainSection() {
     const [userData, setUserData] = useState({});
 
-    function inputChangeHandler(e, key) {
+    function inputChangeHandler(e, field, key) {
         const newData = { ...userData };
 
-        newData[key] = e.target.value;
+        if (newData[key] == null) {
+            newData[key] = [];
+        }
+        newData[key][field] = e.target.value;
         setUserData(newData);
+        console.clear();
+        console.log(newData);
     }
+
+    const [inputSections, setInputSections] = useState([
+        {
+            type: "General",
+            id: 0,
+            title: "General Information",
+            inputs: ["Full Name", "Email"],
+        },
+        {
+            type: "Educational",
+            id: 1,
+            title: "Educational Experience",
+            inputs: ["School Name", "Title of Study", "Date of Study"],
+        },
+        {
+            type: "Job",
+            id: 2,
+            title: "Practical Experience",
+            inputs: [
+                "Company Name",
+                "Position Title",
+                "Main Responsibilities",
+                "From",
+                "To",
+            ],
+        },
+    ]);
 
     return (
         <Fragment>
             <div className="edit-section">
-                <InputSection
-                    title="General Information"
-                    inputs={["Full Name", "Email"]}
-                    inputChangeHandler={inputChangeHandler}
-                ></InputSection>
-
-                <InputSection
-                    title="Educational Experience"
-                    inputs={["School Name", "Title of Study", "Date of Study"]}
-                    inputChangeHandler={inputChangeHandler}
-                ></InputSection>
-
-                <InputSection
-                    title="Practical Experience"
-                    inputs={[
-                        "Company Name",
-                        "Position Title",
-                        "Main Responsibilities",
-                        "From",
-                        "To",
-                    ]}
-                    inputChangeHandler={inputChangeHandler}
-                ></InputSection>
+                {inputSections.map((inputSection) => {
+                    return (
+                        <InputSection
+                            key={inputSection.id}
+                            sectionKey={inputSection.id}
+                            title={inputSection.title}
+                            inputs={inputSection.inputs}
+                            inputChangeHandler={inputChangeHandler}
+                        ></InputSection>
+                    );
+                })}
 
                 {/* End of edit-section */}
             </div>

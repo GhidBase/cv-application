@@ -1,6 +1,12 @@
 import { Fragment } from "react";
 
-export default function InputSection({ title, inputs, inputChangeHandler }) {
+export default function InputSection({
+    title,
+    inputs,
+    inputChangeHandler,
+    sectionKey,
+}) {
+    // console.log(inputs)
     function listInputs(inputs) {
         if (!inputs) {
             return <input></input>;
@@ -8,11 +14,12 @@ export default function InputSection({ title, inputs, inputChangeHandler }) {
 
         return inputs.map((input) => {
             return (
-                <div key={input} className="input-component">
+                <div key={sectionKey + input} className="input-component">
                     <p>{input}</p>
                     <input
+                        // value={}
                         onChange={(e) => {
-                            inputChangeHandler(e, input);
+                            inputChangeHandler(e, input, sectionKey);
                         }}
                     />
                 </div>

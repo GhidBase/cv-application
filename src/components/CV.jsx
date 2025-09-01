@@ -1,5 +1,5 @@
 export default function CV({ data }) {
-    console.log(data["Full Name"]);
+    // console.log(data["Full Name"]);
     return (
         <div className="cv-section">
             <div className="cv-body">
