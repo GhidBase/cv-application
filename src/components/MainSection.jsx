@@ -1,6 +1,8 @@
 import { Fragment, useState } from "react";
 import EditSection from "./EditSection";
 import "../styles/main.css";
+import "../styles/cv-side.css";
+import "../styles/input-side.css";
 import InputSection from "./InputSection";
 
 import CV from "./CV";
@@ -32,6 +34,8 @@ export default function MainSection() {
      */
     function listInputSections(type) {
         return userData.map((inputSection) => {
+            console.clear();
+            console.log(inputSection);
             if (inputSection.type == type) {
                 return (
                     <InputSection

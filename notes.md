@@ -23,4 +23,4 @@ instead do newData = {...userData}
 
 ====================== To Do ================================
 
-Styling
+Fixing a bug
