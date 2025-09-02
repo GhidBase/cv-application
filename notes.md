@@ -23,3 +23,21 @@ instead do newData = {...userData}
 
 ====================== To Do ================================
 
+Styling
+
+Put all the CV styling in it's own css doc
+
+Lets add a separator to the two sections
+
+Job section:
+Job Title is the main, in bold
+Company is secondary,
+description third
+timeframe on the right of main
+city on the right, secondary
+
+Should use h2 for section titles
+h3 for job title
+
+Base the styling off of this
+https://cv-builder-five-theta.vercel.app/

@@ -15,18 +15,16 @@ export default function CV({ data }) {
                 <div className="separator"></div>
 
                 <div className="details">
-                    {workExists && <p>Work Experience</p>}
+                    {workExists && <h2>Work Experience</h2>}
+                    {workExists && <div className="separator"></div>}
 
                     {data.map((currentData) => {
                         if (currentData.type == "Job") {
                             return (
                                 <div key={currentData.type + currentData.id}>
+                                    <h3>{currentData["Position Title"]}</h3>
                                     <p>
                                         Company: {currentData["Company Name"]}
-                                    </p>
-                                    <p>
-                                        Position:{" "}
-                                        {currentData["Position Title"]}
                                     </p>
                                     <p>
                                         Main Responsibilities:{" "}
@@ -38,6 +36,7 @@ export default function CV({ data }) {
                             );
                         }
                     })}
+
                 </div>
 
                 <div className="details">
@@ -57,6 +56,8 @@ export default function CV({ data }) {
                         }
                         return null;
                     })}
+
+                    {educationalExists && <div className="separator"></div>}
                 </div>
             </div>
         </div>
