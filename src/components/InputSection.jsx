@@ -18,7 +18,7 @@ export default function InputSection({
                     <p>{input}</p>
                     <input
                         onChange={(e) => {
-                            inputChangeHandler(e, input, sectionKey, type);
+                            inputChangeHandler(e, input, sectionKey);
                         }}
                     />
                 </div>

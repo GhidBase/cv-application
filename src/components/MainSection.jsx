@@ -34,8 +34,6 @@ export default function MainSection() {
      */
     function listInputSections(type) {
         return userData.map((inputSection) => {
-            console.clear();
-            console.log(inputSection);
             if (inputSection.type == type) {
                 return (
                     <InputSection
@@ -61,12 +59,9 @@ export default function MainSection() {
     }
 
     function handleAddButtonPress(e, type) {
-        console.log(type);
-        console.log(e.target);
-
         const newData = [...userData];
-        newData[nextID] = { type: type };
-        newData[nextID].id = nextID;
+        newData.push({ type: type });
+        newData[newData.length - 1].id = nextID;
 
         setNextID(nextID + 1);
         setUserData(newData);
@@ -77,15 +72,14 @@ export default function MainSection() {
         setUserData(newData);
     }
 
-    function inputChangeHandler(e, field, key, type) {
+    function inputChangeHandler(e, field, key) {
+        console.log(key);
         const newData = [...userData];
 
-        if (newData[key] == null) {
-            newData[key] = [];
-            newData[key]["type"] = type;
-        }
-
-        newData[key][field] = e.target.value;
+        // find the key
+        const index = newData.find((element) => (element.id == key)).id;
+        console.log(index);
+        newData[index][field] = e.target.value;
         setUserData(newData);
     }
 
