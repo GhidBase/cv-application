@@ -53,3 +53,15 @@
     flex-direction: column;
     width: 100%;
 }
+
+.cv-body h2 {
+    margin: 8px 0;
+}
+
+.cv-body h3 {
+    margin: 8px 0 2px 0;
+}
+
+.details > div > p {
+    margin: 2px 0 2px 0;
+}
