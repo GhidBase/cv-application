@@ -78,10 +78,11 @@ export default function MainSection() {
 
         // find the key
         const index = newData.find((element) => (element.id == key)).id;
-        console.log(index);
         newData[index][field] = e.target.value;
         setUserData(newData);
     }
+
+    console.log(userData)
 
     return (
         <Fragment>
