@@ -68,6 +68,7 @@ export default function MainSection() {
                         type={inputSection.type}
                         inputChangeHandler={inputChangeHandler}
                         handleRemoveButtonPress={handleRemoveButtonPress}
+                        inputData={inputSection}
                     ></InputSection>
                 );
             }
@@ -97,23 +98,16 @@ export default function MainSection() {
     }
 
     function inputChangeHandler(e, field, key) {
-        console.log(key);
         const newData = [...userData];
 
         // find the key
 
         const index = newData.findIndex((element) => element.id == key);
-        const item = newData[index];
-        const id = item.id;
-        console.log(newData);
-        console.log(`item ${item}`);
-        console.log(`index ${index}`);
-        console.log(`id ${id}`);
         newData[index][field] = e.target.value;
         setUserData(newData);
     }
 
-    console.log(userData);
+    // console.log(userData);
 
     return (
         <Fragment>

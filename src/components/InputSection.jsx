@@ -6,6 +6,7 @@ export default function InputSection({
     sectionKey,
     type,
     handleRemoveButtonPress,
+    inputData,
 }) {
     function listInputs(inputs) {
         if (!inputs) {
@@ -20,6 +21,7 @@ export default function InputSection({
                         onChange={(e) => {
                             inputChangeHandler(e, input, sectionKey);
                         }}
+                        value={inputData[input] ? inputData[input] : undefined}
                     />
                 </div>
             );
