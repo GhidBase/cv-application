@@ -8,7 +8,31 @@ import InputSection from "./InputSection";
 import CV from "./CV";
 
 export default function MainSection() {
-    const [userData, setUserData] = useState([{ type: "General", id: 0 }]);
+    const [userData, setUserData] = useState([
+        {
+            type: "General",
+            id: 0,
+            "Full Name": "Dylan Simon",
+            Email: "grvdylans@gmail.com",
+        },
+        {
+            type: "Educational",
+            id: 1,
+            "School Name": "White Pine High School",
+            "Title of Study": "General Diploma",
+            "Date of Study": "2010-2014",
+        },
+        {
+            type: "Job",
+            id: 2,
+            "Company Name": "Productive Computing",
+            "Position Title": "Database Engineer",
+            From: "2024",
+            To: "2025",
+            "Main Responsibilities":
+                "Building and maintaining databases for clients",
+        },
+    ]);
     const [nextID, setNextID] = useState(userData.length);
 
     /* Input Sections Description:
@@ -77,12 +101,19 @@ export default function MainSection() {
         const newData = [...userData];
 
         // find the key
-        const index = newData.find((element) => (element.id == key)).id;
+
+        const index = newData.findIndex((element) => element.id == key);
+        const item = newData[index];
+        const id = item.id;
+        console.log(newData);
+        console.log(`item ${item}`);
+        console.log(`index ${index}`);
+        console.log(`id ${id}`);
         newData[index][field] = e.target.value;
         setUserData(newData);
     }
 
-    console.log(userData)
+    console.log(userData);
 
     return (
         <Fragment>
